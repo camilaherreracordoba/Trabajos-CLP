@@ -1,5 +1,34 @@
 import sys
 from railroad import Diagram, Choice, Sequence, Terminal, NonTerminal, OneOrMore, Optional
+# Definir un estilo personalizado para el diagrama
+css = """
+    svg.railroad-diagram {
+        background-color: white;
+    }
+    svg.railroad-diagram path {
+        stroke-width: 2;
+        stroke: black;
+    }
+    svg.railroad-diagram text {
+        font-family: sans-serif;
+        font-size: 14px;
+        fill: black;
+    }
+    svg.railroad-diagram rect {
+        fill: #DCEDC8; /* Fondo verde claro para los recuadros */
+    }
+    svg.railroad-diagram rect.terminal {
+        fill: #B3E5FC; /* Fondo azul claro para terminales */
+        stroke: black;
+    }
+    svg.railroad-diagram rect.non-terminal {
+        fill: #FFECB3; /* Fondo amarillo claro para no terminales */
+        stroke: black;
+    }
+    svg.railroad-diagram rect.choice {
+        fill: #E1BEE7; /* Fondo púrpura claro para opciones */
+    }
+"""
 d = Diagram(
   Choice(0,
     Sequence(
@@ -161,17 +190,12 @@ d = Diagram(
       OneOrMore(NonTerminal("Numero")),
       "."
     )
-  )
+  ),
+  css=css
+
 )
-svg_output = []
-d.writeSvg(svg_output.append)
-svg_text = ''.join(svg_output)
-svg_text = svg_text.replace(
-    '<svg ',
-    '<svg>\n  <style>text { fill: #333; font-family: sans-serif; }</style>\n',
-    1
-)
+
 with open("diagrama.svg", "w", encoding="utf-8") as f:
     d.writeSvg(f.write)
 
-print("guardado como 'diagrama.svg'")
+print("'diagrama.svg'")
