@@ -216,4 +216,4 @@ Numero = %x30-39
 ```
 
 
-[Ver diagrama SVG](diagrama.svg)
+![Ver diagrama SVG](diagrama.svg)
