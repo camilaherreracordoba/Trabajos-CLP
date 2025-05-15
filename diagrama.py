@@ -1,6 +1,168 @@
 import sys
-from railroad import Diagram, Choice
-d = Diagram("foo", Choice(0, "bar", "baz"))
+from railroad import Diagram, Choice, Sequence, Terminal, NonTerminal, OneOrMore, Optional
+d = Diagram(
+  Choice(0,
+    Sequence(
+      OneOrMore(NonTerminal("Palabra")), ".",
+      Terminal("Ingredients."),
+      OneOrMore(
+        Sequence(
+          NonTerminal("Entero"),
+          Optional(
+            Choice(0,
+              Terminal("g"),
+              Terminal("kg"),
+              Terminal("pinch"),
+              Sequence(
+                Optional(Choice(0, Terminal("heaped"), Terminal("level"))),
+                Choice(0, Terminal("ml"), Terminal("l"))
+              ),
+              Sequence(
+                Optional(Choice(0, Terminal("heaped"), Terminal("level"))),
+                Choice(0, Terminal("tablespoon"), Terminal("teaspoon"), Terminal("cup"))
+              )
+            )
+          ),
+          OneOrMore(NonTerminal("Palabra"))
+        )
+      ),
+      OneOrMore(
+        Choice(0,
+          Sequence("Add", OneOrMore(NonTerminal("Palabra")),
+            Optional(Sequence("into",
+              Optional("the"),
+              Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+              Terminal("mixing bowl"))),
+            "."
+          ),
+          Sequence("Put", OneOrMore(NonTerminal("Palabra")),
+            "into",
+            Optional("the"),
+            Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+            Terminal("mixing bowl"),
+            "."
+          ),
+          Sequence("Fold", OneOrMore(NonTerminal("Palabra")),
+            "into",
+            Optional("the"),
+            Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+            Terminal("mixing bowl"),
+            "."
+          ),
+          Sequence("Remove", OneOrMore(NonTerminal("Palabra")),
+            Optional(Sequence("from",
+              Optional("the"),
+              Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+              Terminal("mixing bowl"))),
+            "."
+          ),
+          Sequence("Combine", OneOrMore(NonTerminal("Palabra")),
+            Optional(Sequence("into",
+              Optional("the"),
+              Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+              Terminal("mixing bowl"))),
+            "."
+          ),
+          Sequence("Divide", OneOrMore(NonTerminal("Palabra")),
+            Optional(Sequence("into",
+              Optional("the"),
+              Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+              Terminal("mixing bowl"))),
+            "."
+          ),
+          Sequence("Add dry ingredients",
+            Optional(Sequence("to",
+              Optional("the"),
+              Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+              Terminal("mixing bowl"))),
+            "."
+          ),
+          Sequence("Liquefy",
+            Choice(0,
+              Sequence("contents of",
+                Optional("the"),
+                Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+                Terminal("mixing bowl")),
+              OneOrMore(NonTerminal("Palabra"))
+            ),
+            "."
+          ),
+          Sequence("Stir",
+            Choice(0,
+              Sequence(
+                Optional("the"),
+                Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+                Terminal("mixing bowl"),
+                "for",
+                OneOrMore(NonTerminal("Numero")),
+                "minutes"
+              ),
+              Sequence("for", OneOrMore(NonTerminal("Numero")), "minutes"),
+              Sequence(OneOrMore(NonTerminal("Palabra")), "into",
+                Optional("the"),
+                Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+                Terminal("mixing bowl"))
+            ),
+            "."
+          ),
+          Sequence("Mix",
+            Optional(Sequence(
+              Optional("the"),
+              Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+              Terminal("mixing bowl")
+            )),
+            "well",
+            "."
+          ),
+          Sequence("Clean",
+            Optional("the"),
+            Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+            Terminal("mixing bowl"),
+            "."
+          ),
+          Sequence("Pour contents of",
+            Optional("the"),
+            Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+            Terminal("mixing bowl"),
+            "into",
+            Optional("the"),
+            Optional(Choice(0, Terminal("1st"), Terminal("2nd"), Terminal("3rd"), Terminal("4th"), Terminal("5th"))),
+            Terminal("baking dish"),
+            "."
+          ),
+          Sequence("Serve with", OneOrMore(NonTerminal("Palabra")), ".")
+        )
+      )
+    ),
+    Sequence(
+      OneOrMore(NonTerminal("Palabra")), ".",
+      Terminal("Ingredients."),
+      Sequence(
+        NonTerminal("Entero"),
+        Optional(
+          Choice(0,
+            Terminal("g"),
+            Terminal("kg"),
+            Terminal("pinch"),
+            Sequence(
+              Optional(Choice(0, Terminal("heaped"), Terminal("level"))),
+              Choice(0, Terminal("ml"), Terminal("l"))
+            ),
+            Sequence(
+              Optional(Choice(0, Terminal("heaped"), Terminal("level"))),
+              Choice(0, Terminal("tablespoon"), Terminal("teaspoon"), Terminal("cup"))
+            )
+          )
+        ),
+        OneOrMore(NonTerminal("Palabra"))
+      ),
+      OneOrMore(NonTerminal("Instruccion")),
+      Terminal("Serves"),
+      OneOrMore(NonTerminal("Numero")),
+      "."
+    )
+  )
+)
 
 with open("diagrama.svg", "w", encoding="utf-8") as f:
     d.writeSvg(f.write)
