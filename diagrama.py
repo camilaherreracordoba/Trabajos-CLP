@@ -163,7 +163,14 @@ d = Diagram(
     )
   )
 )
-
+svg_output = []
+d.writeSvg(svg_output.append)
+svg_text = ''.join(svg_output)
+svg_text = svg_text.replace(
+    '<svg ',
+    '<svg>\n  <style>text { fill: #333; font-family: sans-serif; }</style>\n',
+    1
+)
 with open("diagrama.svg", "w", encoding="utf-8") as f:
     d.writeSvg(f.write)
 
