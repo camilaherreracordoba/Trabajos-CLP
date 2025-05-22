@@ -1,7 +1,12 @@
 # Caracteristicas de los lenguajes de programación
+## TP 1
+[Mapa conceptual](https://www.mermaidchart.com/raw/30bd0048-315a-4ec0-bd83-ce62b3d13edc?theme=light&version=v0.1&format=svg)
+## TP 2
 
+[Clasificacion de lenguajes](https://docs.google.com/spreadsheets/d/19aTSzIjQNs6RBNJFz0bftTlqKr-uWbohbBZnxmP0-r0/edit?gid=0#gid=0)
+
+## TP 3
 Chef es un lenguaje esoterico basado en pilas. Tiene la particularidad de que los programas se asemejan a recetas de cocina. 
-
 ### GIC
 
 ```text
@@ -63,8 +68,8 @@ Numero -> 0 |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 ```
 ### BNF
 ```bnf
-<Programa> ::= <Identificador> "." "Ingredients." <ListaIngredientes> <Metodos>
-            | <Identificador> "." "Ingredients." <Ingrediente> <Metodos> "Serves" <Entero> "."
+<Programa> ::= <Identificador> "." "Ingredients." <ListaIngredientes> "Methods." <Metodos>
+            | <Identificador> "." "Ingredients." <Ingrediente> "Methods." <Metodos> "Serves" <Entero> "."
 
 
 <ListaIngredientes> ::= <Ingrediente> <ListaIngredientes> | <Ingrediente>
@@ -129,8 +134,8 @@ Numero -> 0 |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 ### EBNF
 ```ebnf
-Programa ::= Identificador "." "Ingredients." ListaIngredientes Metodos
-            | Identificador "." "Ingredients." Ingrediente Metodos "Serves" Entero "."
+Programa ::= Identificador "." "Ingredients." ListaIngredientes "Method." Metodos
+            | Identificador "." "Ingredients." Ingrediente "Method" Metodos "Serves" Entero "."
 
 ListaIngredientes ::= {Ingrediente}+
 
@@ -174,8 +179,8 @@ Numero ::= "0" | ... | "9"
 ```
 ### ABNF
 ```abnf
-Programa = Identificador "." "Ingredients." ListaIngredientes Metodos
-         / Identificador "." "Ingredients." Ingrediente Metodos "Serves" Entero "."
+Programa = Identificador "." "Ingredients." ListaIngredientes "Method."Metodos
+         / Identificador "." "Ingredients." Ingrediente "Method." Metodos "Serves" Entero "."
 
 
 ListaIngredientes = 1*(Ingrediente)
@@ -216,7 +221,7 @@ Numero = %x30-39
 
 
 ```
-
+### TP 4
 ## Diagrama de sintaxis
 
 ### Programa
@@ -258,3 +263,26 @@ Numero = %x30-39
 ![diagrama letra](src/letra.svg)
 ### Digito
 ![diagrama digito](src/digito.svg)
+
+## Arbol sintactico:
+
+```
+Hey.
+
+Ingredients.
+121 g y
+101 ml e
+72 cup h
+
+Method.
+Put y into the mixing bowl.
+Put e into the mixing bowl.
+Put h into the mixing bowl.
+Liquefy contents of the mixing bowl.
+Pour contents of the mixing bowl into the baking dish.
+
+Serves 1.
+```
+> Output: Hey
+
+![diagrama arbol](src/arbol.png)
