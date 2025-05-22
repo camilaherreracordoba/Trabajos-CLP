@@ -270,13 +270,10 @@ Numero = %x30-39
 Hey.
 
 Ingredients.
-121 g y
-101 ml e
+
 72 cup h
 
 Method.
-Put y into the mixing bowl.
-Put e into the mixing bowl.
 Put h into the mixing bowl.
 Liquefy contents of the mixing bowl.
 Pour contents of the mixing bowl into the baking dish.

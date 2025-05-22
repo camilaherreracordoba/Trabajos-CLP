@@ -4,8 +4,7 @@ from lark.tree import pydot__tree_to_png
 chef_grammar = r"""
     start: programa
 
-    programa: identificador "." "Ingredients." lista_ingredientes "Method." metodos
-            | identificador "." "Ingredients." lista_ingredientes "Method." metodos "Serves" entero "."
+    programa: identificador "." "Ingredients." lista_ingredientes "Method." metodos "Serves" entero "."
 
     lista_ingredientes: ingrediente+
 
@@ -56,13 +55,10 @@ chef_code = """
 Hey.
 
 Ingredients.
-121 g y
-101 ml e
+
 72 cup h
 
 Method.
-Put y into the mixing bowl.
-Put e into the mixing bowl.
 Put h into the mixing bowl.
 Liquefy contents of the mixing bowl.
 Pour contents of the mixing bowl into the baking dish.
@@ -73,5 +69,6 @@ Serves 1.
 
 parser = Lark(chef_grammar, start="start", parser="lalr")
 tree = parser.parse(chef_code)
+
 
 pydot__tree_to_png(tree, "src/arbol.png")
