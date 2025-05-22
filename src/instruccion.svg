@@ -1,0 +1,84 @@
+<svg class="railroad-diagram" height="359" viewBox="0 0 787.5 359" width="787.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" /></g><path d="M40 31h10" /><g>
+<path d="M50 31h0.0" /><path d="M689.0 31h0.0" /><g>
+<path d="M50.0 31h0.0" /><path d="M689.0 31h0.0" /><path d="M50.0 31h20" /><g class="non-terminal ">
+<path d="M70.0 31h191.75" /><path d="M477.25 31h191.75" /><rect height="22" width="215.5" x="261.75" y="20"></rect><text x="369.5" y="35">InstruccionAIngrediente</text></g><path d="M669.0 31h20" /><path d="M50.0 31a10 10 0 0 1 10 10v19a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 70h77.25" /><path d="M591.75 70h77.25" /><g class="terminal ">
+<path d="M147.25 70h0.0" /><path d="M328.75 70h0.0" /><rect height="22" rx="10" ry="10" width="181.5" x="147.25" y="59"></rect><text x="238" y="74">Add dry ingredients</text></g><path d="M328.75 70h10" /><g>
+<path d="M338.75 70h0.0" /><path d="M591.75 70h0.0" /><path d="M338.75 70a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path d="M358.75 50h213.0" /></g><path d="M571.75 50a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path d="M338.75 70h20" /><g>
+<path d="M358.75 70h0.0" /><path d="M571.75 70h0.0" /><g class="terminal ">
+<path d="M358.75 70h0.0" /><path d="M395.75 70h0.0" /><rect height="22" rx="10" ry="10" width="37" x="358.75" y="59"></rect><text x="377.25" y="74">to</text></g><path d="M395.75 70h10" /><path d="M405.75 70h10" /><g class="non-terminal ">
+<path d="M415.75 70h0.0" /><path d="M571.75 70h0.0" /><rect height="22" width="156" x="415.75" y="59"></rect><text x="493.75" y="74">RecipienteMezcla</text></g></g><path d="M571.75 70h20" /></g></g><path d="M669.0 70a10 10 0 0 0 10 -10v-19a10 10 0 0 1 10 -10" /><path d="M50.0 31a10 10 0 0 1 10 10v49a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 100h90.0" /><path d="M579.0 100h90.0" /><g class="terminal ">
+<path d="M160.0 100h0.0" /><path d="M239.5 100h0.0" /><rect height="22" rx="10" ry="10" width="79.5" x="160" y="89"></rect><text x="199.75" y="104">Liquefy</text></g><path d="M239.5 100h10" /><g>
+<path d="M249.5 100h0.0" /><path d="M579.0 100h0.0" /><path d="M249.5 100h20" /><g>
+<path d="M269.5 100h0.0" /><path d="M559.0 100h0.0" /><g class="terminal ">
+<path d="M269.5 100h0.0" /><path d="M383.0 100h0.0" /><rect height="22" rx="10" ry="10" width="113.5" x="269.5" y="89"></rect><text x="326.25" y="104">contents of</text></g><path d="M383.0 100h10" /><path d="M393.0 100h10" /><g class="non-terminal ">
+<path d="M403.0 100h0.0" /><path d="M559.0 100h0.0" /><rect height="22" width="156" x="403" y="89"></rect><text x="481" y="104">RecipienteMezcla</text></g></g><path d="M559.0 100h20" /><path d="M249.5 100a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><g class="non-terminal ">
+<path d="M269.5 130h79.5" /><path d="M479.5 130h79.5" /><rect height="22" width="130.5" x="349" y="119"></rect><text x="414.25" y="134">Identificador</text></g><path d="M559.0 130a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /></g></g><path d="M669.0 100a10 10 0 0 0 10 -10v-49a10 10 0 0 1 10 -10" /><path d="M50.0 31a10 10 0 0 1 10 10v118a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 169h26.5" /><path d="M642.5 169h26.5" /><g class="terminal ">
+<path d="M96.5 169h0.0" /><path d="M150.5 169h0.0" /><rect height="22" rx="10" ry="10" width="54" x="96.5" y="158"></rect><text x="123.5" y="173">Stir</text></g><path d="M150.5 169h10" /><g>
+<path d="M160.5 169h0.0" /><path d="M642.5 169h0.0" /><path d="M160.5 169h20" /><g>
+<path d="M180.5 169h0.0" /><path d="M622.5 169h0.0" /><g>
+<path d="M180.5 169h0.0" /><path d="M376.5 169h0.0" /><path d="M180.5 169a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path d="M200.5 149h156.0" /></g><path d="M356.5 149a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path d="M180.5 169h20" /><g class="non-terminal ">
+<path d="M200.5 169h0.0" /><path d="M356.5 169h0.0" /><rect height="22" width="156" x="200.5" y="158"></rect><text x="278.5" y="173">RecipienteMezcla</text></g><path d="M356.5 169h20" /></g><path d="M376.5 169h10" /><g class="terminal ">
+<path d="M386.5 169h0.0" /><path d="M432.0 169h0.0" /><rect height="22" rx="10" ry="10" width="45.5" x="386.5" y="158"></rect><text x="409.25" y="173">for</text></g><path d="M432.0 169h10" /><path d="M442.0 169h10" /><g class="non-terminal ">
+<path d="M452.0 169h0.0" /><path d="M523.0 169h0.0" /><rect height="22" width="71" x="452" y="158"></rect><text x="487.5" y="173">Entero</text></g><path d="M523.0 169h10" /><path d="M533.0 169h10" /><g class="terminal ">
+<path d="M543.0 169h0.0" /><path d="M622.5 169h0.0" /><rect height="22" rx="10" ry="10" width="79.5" x="543" y="158"></rect><text x="582.75" y="173">minutes</text></g></g><path d="M622.5 169h20" /><path d="M160.5 169a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><g>
+<path d="M180.5 199h30.75" /><path d="M591.75 199h30.75" /><g class="non-terminal ">
+<path d="M211.25 199h0.0" /><path d="M341.75 199h0.0" /><rect height="22" width="130.5" x="211.25" y="188"></rect><text x="276.5" y="203">Identificador</text></g><path d="M341.75 199h10" /><path d="M351.75 199h10" /><g class="terminal ">
+<path d="M361.75 199h0.0" /><path d="M415.75 199h0.0" /><rect height="22" rx="10" ry="10" width="54" x="361.75" y="188"></rect><text x="388.75" y="203">into</text></g><path d="M415.75 199h10" /><path d="M425.75 199h10" /><g class="non-terminal ">
+<path d="M435.75 199h0.0" /><path d="M591.75 199h0.0" /><rect height="22" width="156" x="435.75" y="188"></rect><text x="513.75" y="203">RecipienteMezcla</text></g></g><path d="M622.5 199a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /></g></g><path d="M669.0 169a10 10 0 0 0 10 -10v-118a10 10 0 0 1 10 -10" /><path d="M50.0 31a10 10 0 0 1 10 10v187a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 238h141.75" /><path d="M527.25 238h141.75" /><g class="terminal ">
+<path d="M211.75 238h0.0" /><path d="M257.25 238h0.0" /><rect height="22" rx="10" ry="10" width="45.5" x="211.75" y="227"></rect><text x="234.5" y="242">Mix</text></g><path d="M257.25 238h10" /><g>
+<path d="M267.25 238h0.0" /><path d="M463.25 238h0.0" /><path d="M267.25 238a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path d="M287.25 218h156.0" /></g><path d="M443.25 218a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path d="M267.25 238h20" /><g class="non-terminal ">
+<path d="M287.25 238h0.0" /><path d="M443.25 238h0.0" /><rect height="22" width="156" x="287.25" y="227"></rect><text x="365.25" y="242">RecipienteMezcla</text></g><path d="M443.25 238h20" /></g><path d="M463.25 238h10" /><g class="terminal ">
+<path d="M473.25 238h0.0" /><path d="M527.25 238h0.0" /><rect height="22" rx="10" ry="10" width="54" x="473.25" y="227"></rect><text x="500.25" y="242">well</text></g></g><path d="M669.0 238a10 10 0 0 0 10 -10v-187a10 10 0 0 1 10 -10" /><path d="M50.0 31a10 10 0 0 1 10 10v217a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 268h180.25" /><path d="M488.75 268h180.25" /><g class="terminal ">
+<path d="M250.25 268h0.0" /><path d="M312.75 268h0.0" /><rect height="22" rx="10" ry="10" width="62.5" x="250.25" y="257"></rect><text x="281.5" y="272">Clean</text></g><path d="M312.75 268h10" /><path d="M322.75 268h10" /><g class="non-terminal ">
+<path d="M332.75 268h0.0" /><path d="M488.75 268h0.0" /><rect height="22" width="156" x="332.75" y="257"></rect><text x="410.75" y="272">RecipienteMezcla</text></g></g><path d="M669.0 268a10 10 0 0 0 10 -10v-217a10 10 0 0 1 10 -10" /><path d="M50.0 31a10 10 0 0 1 10 10v247a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 298h0.0" /><path d="M669.0 298h0.0" /><g class="terminal ">
+<path d="M70.0 298h0.0" /><path d="M226.0 298h0.0" /><rect height="22" rx="10" ry="10" width="156" x="70" y="287"></rect><text x="148" y="302">Pour contents of</text></g><path d="M226.0 298h10" /><path d="M236.0 298h10" /><g class="non-terminal ">
+<path d="M246.0 298h0.0" /><path d="M402.0 298h0.0" /><rect height="22" width="156" x="246" y="287"></rect><text x="324" y="302">RecipienteMezcla</text></g><path d="M402.0 298h10" /><path d="M412.0 298h10" /><g class="terminal ">
+<path d="M422.0 298h0.0" /><path d="M476.0 298h0.0" /><rect height="22" rx="10" ry="10" width="54" x="422" y="287"></rect><text x="449" y="302">into</text></g><path d="M476.0 298h10" /><path d="M486.0 298h10" /><g class="non-terminal ">
+<path d="M496.0 298h0.0" /><path d="M669.0 298h0.0" /><rect height="22" width="173" x="496" y="287"></rect><text x="582.5" y="302">RecipienteHorneado</text></g></g><path d="M669.0 298a10 10 0 0 0 10 -10v-247a10 10 0 0 1 10 -10" /><path d="M50.0 31a10 10 0 0 1 10 10v277a10 10 0 0 0 10 10" /><g>
+<path d="M70.0 328h171.75" /><path d="M497.25 328h171.75" /><g class="terminal ">
+<path d="M241.75 328h0.0" /><path d="M346.75 328h0.0" /><rect height="22" rx="10" ry="10" width="105" x="241.75" y="317"></rect><text x="294.25" y="332">Serve with</text></g><path d="M346.75 328h10" /><path d="M356.75 328h10" /><g class="non-terminal ">
+<path d="M366.75 328h0.0" /><path d="M497.25 328h0.0" /><rect height="22" width="130.5" x="366.75" y="317"></rect><text x="432" y="332">Identificador</text></g></g><path d="M669.0 328a10 10 0 0 0 10 -10v-277a10 10 0 0 1 10 -10" /></g></g><path d="M689.0 31h10" /><path d="M699.0 31h10" /><g class="terminal ">
+<path d="M709.0 31h0.0" /><path d="M737.5 31h0.0" /><rect height="22" rx="10" ry="10" width="28.5" x="709" y="20"></rect><text x="723.25" y="35">.</text></g><path d="M737.5 31h10" /><path d="M 747.5 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g><style>/* <![CDATA[ */
+	svg.railroad-diagram {
+		background-color:hsl(30,20%,95%);
+	}
+	svg.railroad-diagram path {
+		stroke-width:3;
+		stroke:black;
+		fill:rgba(0,0,0,0);
+	}
+	svg.railroad-diagram text {
+		font:bold 14px monospace;
+		text-anchor:middle;
+	}
+	svg.railroad-diagram text.label{
+		text-anchor:start;
+	}
+	svg.railroad-diagram text.comment{
+		font:italic 12px monospace;
+	}
+	svg.railroad-diagram rect{
+		stroke-width:3;
+		stroke:black;
+		fill:hsl(120,100%,90%);
+	}
+	svg.railroad-diagram rect.group-box {
+		stroke: gray;
+		stroke-dasharray: 10 5;
+		fill: none;
+	}
+
+/* ]]> */
+</style></svg>

@@ -5,16 +5,12 @@ Chef es un lenguaje esoterico basado en pilas. Tiene la particularidad de que lo
 ### GIC
 
 ```text
-Programa -> NombreReceta . Ingredients. Ingredientes Method. Metodo 
-          | NombreReceta . Ingredients. Ingrediente Method. Metodo Serves Entero .
+Programa -> Identificador . Ingredients. ListaIngredientes Method. Metodos 
+          | Identificador . Ingredients. Ingrediente Method. Metodos Serves Entero .
 
-NombreReceta -> Palabra NombreReceta | Palabra
-
-NombreIngrediente -> Palabra NombreIngrediente | Palabra
-
-Ingredientes -> Ingrediente Ingredientes | Ingrediente 
-Ingrediente -> Entero Unidad NombreIngrediente 
-             | Entero NombreIngrediente 
+ListaIngredientes -> Ingrediente ListaIngredientes | Ingrediente 
+Ingrediente -> Entero Unidad Identificador 
+             | Entero Identificador 
 
 Unidad -> Seco | Liquido | Volumen 
         | Modificador Liquido
@@ -28,45 +24,53 @@ Volumen -> tablespoon | teaspoon | cup
 
 Modificador -> heaped | level
 
-Metodo -> Instruccion | Instruccion Metodo
+Metodos -> Instruccion | Instruccion Metodos
 
-Instruccion -> Add NombreIngrediente into RecipienteMezcla . | Add NombreIngrediente .
-             | Put NombreIngrediente into RecipienteMezcla .
-             | Fold NombreIngrediente into RecipienteMezcla .
-             | Remove NombreIngrediente from RecipienteMezcla . | Remove NombreIngrediente .
-             | Combine NombreIngrediente into RecipienteMezcla . | Combine NombreIngrediente .
-             | Divide NombreIngrediente into RecipienteMezcla . | Divide NombreIngrediente .
+Instruccion -> InstruccionAIngrediente .
              | Add dry ingredients to RecipienteMezcla . | Add dry ingredients .
-             | Liquefy contents of RecipienteMezcla . | Liquefy NombreIngrediente .
-             | Stir the RecipienteMezcla for Entero minutes . | Stir for Entero minutes . | Stir NombreIngrediente into RecipienteMezcla . 
+             | Liquefy contents of RecipienteMezcla . | Liquefy Identificador .
+             | Stir the RecipienteMezcla for Entero minutes . | Stir for Entero minutes . | Stir Identificador into RecipienteMezcla . 
              | Mix RecipienteMezcla well . | Mix well . 
              | Clean RecipienteMezcla .
              | Pour contents of RecipienteMezcla into RecipienteHorneado . 
-             | Serve with NombreReceta . 
+             | Serve with Identificador . 
+
+InstruccionAIngrediente -> Add Identificador into RecipienteMezcla
+                | Add Identificador
+                | Combine Identificador into RecipienteMezcla
+                | Combine Identificador
+                | Divide Identificador into RecipienteMezcla
+                | Divide Identificador
+                | Put Identificador into RecipienteMezcla
+                | Fold Identificador into RecipienteMezcla
+                | Remove Identificador from RecipienteMezcla
+                | Remove Identificador
 
 RecipienteMezcla -> mixing bowl | the mixing bowl | Ordinal mixing bowl | the Ordinal mixing bowl
 RecipienteHorneado -> baking dish | the baking dish | Ordinal baking dish | the Ordinal baking dish
 
-Ordinal -> 1st | 2nd | 3rd | 4th | ...
-Palabra -> Letra Palabra | Numero Palabra | Letra | Numero 
+Ordinal -> 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th | 10th
+
+Identificador -> Letra Identificador
+               | Numero Identificador
+               | Letra
+               | Numero
+
 Letra -> A | B | C | ... | a | b | c | ...
 Entero -> Numero Entero | Numero
-Numero -> 0 |1 | 2 | 3 | ...
+Numero -> 0 |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 
 ```
 ### BNF
 ```bnf
-<Programa> ::= <NombreReceta> "." "Ingredients." <Ingredientes> <Metodo>
-            | <NombreReceta> "." "Ingredients." <Ingrediente> <Metodo> "Serves" <Entero> "."
+<Programa> ::= <Identificador> "." "Ingredients." <ListaIngredientes> <Metodos>
+            | <Identificador> "." "Ingredients." <Ingrediente> <Metodos> "Serves" <Entero> "."
 
-<NombreReceta> ::= <Palabra> <NombreReceta> | <Palabra>
 
-<NombreIngrediente> ::= <Palabra> <NombreIngrediente> | <Palabra>
+<ListaIngredientes> ::= <Ingrediente> <ListaIngredientes> | <Ingrediente>
 
-<Ingredientes> ::= <Ingrediente> <Ingredientes> | <Ingrediente>
-
-<Ingrediente> ::= <Entero> <Unidad> <NombreIngrediente>
-              | <Entero> <NombreIngrediente>
+<Ingrediente> ::= <Entero> <Unidad> <Identificador>
+              | <Entero> <Identificador>
 
 <Unidad> ::= <Seco> | <Liquido> | <Volumen> | <Modificador> <Liquido> | <Modificador> <Volumen>
 
@@ -78,55 +82,59 @@ Numero -> 0 |1 | 2 | 3 | ...
 
 <Modificador> ::= "heaped" | "level"
 
-<Metodo> ::= <Instruccion> | <Instruccion> <Metodo>
+<Metodos> ::= <Instruccion> | <Instruccion> <Metodos>
 
-<Instruccion> ::= "Add" <NombreIngrediente> "into" <RecipienteMezcla> "."
-              | "Add" <NombreIngrediente> "."
-              | "Put" <NombreIngrediente> "into" <RecipienteMezcla> "."
-              | "Fold" <NombreIngrediente> "into" <RecipienteMezcla> "."
-              | "Remove" <NombreIngrediente> "from" <RecipienteMezcla> "."
-              | "Remove" <NombreIngrediente> "."
-              | "Combine" <NombreIngrediente> "into" <RecipienteMezcla> "."
-              | "Combine" <NombreIngrediente> "."
-              | "Divide" <NombreIngrediente> "into" <RecipienteMezcla> "."
-              | "Divide" <NombreIngrediente> "."
-              | "Add dry ingredients" "to" <RecipienteMezcla> "."
-              | "Add dry ingredients" "."
-              | "Liquefy contents of" <RecipienteMezcla> "."
-              | "Liquefy" <NombreIngrediente> "."
-              | "Stir" "the" <RecipienteMezcla> "for" <Entero> "minutes" "."
-              | "Stir" "for" <Entero> "minutes" "."
-              | "Stir" <NombreIngrediente> "into" <RecipienteMezcla> "."
-              | "Mix" <RecipienteMezcla> "well" "."
-              | "Mix" "well" "."
-              | "Clean" <RecipienteMezcla> "."
-              | "Pour contents of" <RecipienteMezcla> "into" <RecipienteHorneado> "."
-              | "Serve with" <NombreReceta> "."
+<Instruccion> ::= <InstruccionAIngrediente> "."
+                | "Add dry ingredients" "to" <RecipienteMezcla> "."
+                | "Add dry ingredients" "."
+                | "Liquefy contents of" <RecipienteMezcla> "."
+                | "Liquefy" <Identificador> "."
+                | "Stir" "the" <RecipienteMezcla> "for" <Entero> "minutes" "."
+                | "Stir" "for" <Entero> "minutes" "."
+                | "Stir" <Identificador> "into" <RecipienteMezcla> "."
+                | "Mix" <RecipienteMezcla> "well" "."
+                | "Mix" "well" "."
+                | "Clean" <RecipienteMezcla> "."
+                | "Pour contents of" <RecipienteMezcla> "into" <RecipienteHorneado> "."
+                | "Serve with" <Identificador> "."
+
+<InstruccionAIngrediente> ::= "Add" <Identificador> "into" <RecipienteMezcla>
+                             | "Add" <Identificador>
+                             | "Combine" <Identificador> "into" <RecipienteMezcla>
+                             | "Combine" <Identificador>
+                             | "Divide" <Identificador> "into" <RecipienteMezcla>
+                             | "Divide" <Identificador>
+                             | "Put" <Identificador> "into" <RecipienteMezcla>
+                             | "Fold" <Identificador> "into" <RecipienteMezcla>
+                             | "Remove" <Identificador> "from" <RecipienteMezcla>
+                             | "Remove" <Identificador>
 
 <RecipienteMezcla> ::= "mixing bowl" | "the mixing bowl" | "the" <Ordinal> "mixing bowl" | <Ordinal> "mixing bowl"
 
 <RecipienteHorneado> ::= "baking dish" | "the baking dish" | <Ordinal> "baking dish" | "the" <Ordinal> "baking dish"
-<Ordinal> ::= "1st" | "2nd" | "3rd" | "4th" | ...
 
-<Palabra> ::= <Letra> <Palabra> | <Numero> <Palabra> | <Letra> | <Numero>
+<Ordinal> ::= "1st" | "2nd" | "3rd" | "4th" | "5th" | "6th" | "7th" | "8th" | "9th" | "10th"
+
+<Identificador> ::= <Letra> <Identificador> 
+                | <Numero> <Identificador> 
+                | <Letra> 
+                | <Numero>
 
 <Letra> ::= "A" | "B" | "C" | ... | "a" | "b" | "c" | ...
 
-<Entero> -> <Numero> <Entero> | <Numero>
+<Entero> ::= <Numero> <Entero> | <Numero>
 
-<Numero> ::= "0" | "1" | "2" | "3" | ...
+<Numero> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 ```
 
 ### EBNF
 ```ebnf
-Programa ::= NombreReceta "." "Ingredients." Ingredientes Metodo
-            | NombreReceta "." "Ingredients." Ingrediente Metodo "Serves" Entero "."
+Programa ::= Identificador "." "Ingredients." ListaIngredientes Metodos
+            | Identificador "." "Ingredients." Ingrediente Metodos "Serves" Entero "."
 
-NombreReceta ::= {Palabra}+
-NombreIngrediente ::= {Palabra}+
-Ingredientes ::= {Ingrediente}+
+ListaIngredientes ::= {Ingrediente}+
 
-Ingrediente ::= Entero [Unidad] NombreIngrediente
+Ingrediente ::= Entero [Unidad] Identificador
 Unidad ::= Seco | [Modificador] Liquido | [Modificador] Volumen
 
 Modificador ::= "heaped" | "level"
@@ -136,78 +144,72 @@ Liquido ::= "ml" | "l"
 
 Volumen ::= "tablespoon" | "teaspoon" | "cup"
 
-Metodo ::= {Instruccion}+
+Metodos ::= {Instruccion}+
 
-Instruccion ::= "Add" NombreIngrediente ["into" RecipienteMezcla] "." 
-             | "Put" NombreIngrediente "into" RecipienteMezcla "."
-             | "Fold" NombreIngrediente "into" RecipienteMezcla "."
-             | "Remove" NombreIngrediente ["from" RecipienteMezcla] "." 
-             | "Combine" NombreIngrediente ["into" RecipienteMezcla] "." 
-             | "Divide" NombreIngrediente ["into" RecipienteMezcla] "."
-             | "Add dry ingredients" ["to" RecipienteMezcla] "." 
-             | "Liquefy" ("contents of" RecipienteMezcla | NombreIngrediente) "." 
-             | "Stir" ([RecipienteMezcla] "for" Entero "minutes" | NombreIngrediente "into" RecipienteMezcla) "." 
-             | "Mix" [RecipienteMezcla] "well" . 
-             | "Clean" RecipienteMezcla "."
-             | "Pour contents of" RecipienteMezcla "into" RecipienteHorneado "." 
-             | "Serve with" NombreReceta "." 
+Instruccion ::= (InstruccionAIngrediente
+             | "Add dry ingredients" ["to" RecipienteMezcla] 
+             | "Liquefy" ("contents of" RecipienteMezcla | Identificador) 
+             | "Stir" ([RecipienteMezcla] "for" Entero "minutes" | Identificador "into" RecipienteMezcla) 
+             | "Mix" [RecipienteMezcla] "well"
+             | "Clean" RecipienteMezcla
+             | "Pour contents of" RecipienteMezcla "into" RecipienteHorneado 
+             | "Serve with" Identificador) "." 
+
+InstruccionAIngrediente ::= ( ("Put" | "Fold") Identificador "into" RecipienteMezcla 
+            | "Remove" Identificador [ "from" RecipienteMezcla ] 
+            | ("Add" | "Combine" | "Divide") Identificador [ "into" RecipienteMezcla ])
 
 RecipienteMezcla ::= ["the"] [Ordinal] "mixing bowl"
-RecipienteHorneado ::= ["the"] [Ordinal] "baking dish" .
+RecipienteHorneado ::= ["the"] [Ordinal] "baking dish"
 
-Ordinal ::= "1st" | "2nd" | "3rd" | "4th" | "5th" | ...
+Ordinal ::= "1st" | "2nd" | "3rd" | "4th" | "5th" | "6th" | "7th" | "8th" | "9th" | "10th"
 
-Palabra ::= {Letra | Numero}+
+Identificador ::= {Letra | Numero}+
 
 Entero ::= {Numero}+ 
 
-Letra ::= A | B | C | ... | a | b | c | ... | z
+Letra ::= "A" | "B" | "C" | ...  | "Z" | "a" | "b" | "c" | ... | "z"
 
-Numero ::= 0 | ... | 9
+Numero ::= "0" | ... | "9"
 ```
 ### ABNF
 ```abnf
-Programa = NombreReceta "." "Ingredients." Ingredientes Metodo
-         / NombreReceta "." "Ingredients." Ingrediente Metodo "Serves" Entero "."
+Programa = Identificador "." "Ingredients." ListaIngredientes Metodos
+         / Identificador "." "Ingredients." Ingrediente Metodos "Serves" Entero "."
 
-NombreReceta = 1*(Palabra)
-NombreIngrediente = 1*(Palabra)
 
-Ingredientes = 1*(Ingrediente)
+ListaIngredientes = 1*(Ingrediente)
 
-Ingrediente = Entero [Unidad] NombreIngrediente
+Ingrediente = Entero [Unidad] Identificador
 
 Unidad = Seco
-       / [Modificador] Liquido
-       / [Modificador] Volumen
+       / [Modificador] (Liquido / Volumen)
 
 Modificador = "heaped" / "level"
 Seco = "g" / "kg" / "pinch"
 Liquido = "ml" / "l"
 Volumen = "tablespoon" / "teaspoon" / "cup"
 
-Metodo = 1*(Instruccion)
+Metodos = 1*(Instruccion)
 
-Instruccion = "Add" NombreIngrediente ["into" RecipienteMezcla] "."
-            / "Put" NombreIngrediente "into" RecipienteMezcla "."
-            / "Fold" NombreIngrediente "into" RecipienteMezcla "."
-            / "Remove" NombreIngrediente ["from" RecipienteMezcla] "."
-            / "Combine" NombreIngrediente ["into" RecipienteMezcla] "."
-            / "Divide" NombreIngrediente ["into" RecipienteMezcla] "."
-            / "Add dry ingredients" ["to" RecipienteMezcla] "."
-            / "Liquefy" ("contents of" RecipienteMezcla / NombreIngrediente) "."
-            / "Stir" ((RecipienteMezcla "for" Entero "minutes") / ("for" Entero "minutes") / (NombreIngrediente "into" RecipienteMezcla)) "."
-            / "Mix" [RecipienteMezcla] "well" "."
-            / "Clean" RecipienteMezcla "."
-            / "Pour contents of" RecipienteMezcla "into" RecipienteHorneado "."
-            / "Serve with" NombreReceta "."
+Instruccion = (InstruccionAIngrediente
+            / "Add dry ingredients" ["to" RecipienteMezcla] 
+            / "Liquefy" ("contents of" RecipienteMezcla / Identificador) 
+            / "Stir" ((RecipienteMezcla "for" Entero "minutes") / ("for" Entero "minutes") / (Identificador "into" RecipienteMezcla)) 
+            / "Mix" [RecipienteMezcla] "well" 
+            / "Clean" RecipienteMezcla 
+            / "Pour contents of" RecipienteMezcla "into" RecipienteHorneado 
+            / "Serve with" Identificador) "."
 
+InstruccionAIngrediente = ( ("Put" / "Fold") Identificador "into" RecipienteMezcla 
+            / "Remove" Identificador [ "from" RecipienteMezcla ] 
+            / ("Add" / "Combine" / "Divide") Identificador [ "into" RecipienteMezcla ])
 RecipienteMezcla = ["the"] [Ordinal] "mixing bowl"
 RecipienteHorneado = ["the"] [Ordinal] "baking dish"
 
-Ordinal = "1st" / "2nd" / "3rd" / "4th" / "5th" / ...
+Ordinal = "1st" / "2nd" / "3rd" / "4th" / "5th" / "6th" / "7th" / "8th" / "9th" / "10th"
 
-Palabra = 1*(Letra / Numero)
+Identificador = 1*(Letra / Numero)
 Entero = 1*(Numero)
 Letra = %x41-5A / %x61-7A 
 Numero = %x30-39 
@@ -215,5 +217,44 @@ Numero = %x30-39
 
 ```
 
+## Diagrama de sintaxis
 
-![Ver diagrama SVG](diagrama.svg)
+### Programa
+![Ver diagrama programa SVG](src/programa.svg)
+## Lista ingredientes
+![diagrama ingredientes](src/listaIngredientes.svg)
+### Ingrediente
+![Ver diagrama ingrediente](src/ingrediente.svg)
+### Unidad
+![Diagrama Unidad](src/unidad.svg)
+#### Modificador
+![Diagrama Modificador](src/modificador.svg)
+#### Seco
+![Diagrama Seco](src/seco.svg)
+#### Liquido
+![Diagrama Liquido](src/liquido.svg)
+#### Volumen
+![Diagrama Volumen](src/volumen.svg)
+
+## Metodos
+![Diagrama metodos](src/metodos.svg)
+### Instruccion
+![Diagrama instrucciones](src/instruccion.svg)
+### Instruccion a ingredientes
+![Diagrama instruccion sobre ingredientes](src/instruccionSobreIngrediente.svg)
+### Recipiente mezcla
+![Diagrama recipiente mezcla](src/recipienteMezcla.svg)
+### Recipiente horneado
+![Diagrama recipiente horneado](src/recipienteHorneado.svg)
+
+
+### Ordinal
+![diagrama ordinal](src/ordinal.svg)
+### Entero
+![diagrama entero](src/entero.svg)
+### Identificador
+![diagrama identificador](src/identificador.svg)
+### Letra
+![diagrama letra](src/letra.svg)
+### Digito
+![diagrama digito](src/digito.svg)
