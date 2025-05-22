@@ -280,6 +280,6 @@ Pour contents of the mixing bowl into the baking dish.
 
 Serves 1.
 ```
-> Output: Hey
+> Output: H
 
 ![diagrama arbol](src/arbol.png)
