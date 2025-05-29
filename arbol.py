@@ -55,7 +55,6 @@ chef_code = """
 Hey.
 
 Ingredients.
-
 72 cup h
 
 Method.

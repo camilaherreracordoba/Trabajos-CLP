@@ -282,4 +282,15 @@ Serves 1.
 ```
 > Output: H
 
-![diagrama arbol](src/arbol.png)
+[diagrama arbol](src/arbol.png)
+
+## TP 5
+
+| Binding | Estático | Dinámico | Ejemplo estático | Ejemplo dinámico |
+| -- | -- | -- | -- | -- |
+| **De valor**   | Ninguno, en el momento de la compilación no se pueden predecir los valores | Casi todos los lenguajes | - | func(x+1, 2) |
+| **De tipo**    | C, C++, Java | Python, Javascript | void func(int entero, string palabra){...} // C, C++  | func(entero, palabra): ... |
+| **De alcance** | C, C++, Java, Python, JavaScript, Rust, Pascal, Haskell | - | <br> int x = 10;<br>void func() {<br> int y = 20; // y solo accesible en la funcion <br> if (true) {<br> int z = 30; // z solamente en este bloque<br>}<br>// z queda fuera del alcence<br>}<br> | - |
+| **De almacenamiento** | COBOL, FORTRAN | C, C++, Java, Python, etc. | - | - |
+| **De nombre**         | C, C++, Java, Pascal | Python (con *kwargs) | - | def funcion(**kwargs): <br> for nombre, valor in kwargs.items(): <br> print(f"{nombre}: {valor}") |
+
