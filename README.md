@@ -290,8 +290,12 @@ Serves 1.
 | -- | -- | -- | -- | -- |
 | **De valor**   | Ninguno, en el momento de la compilación no se pueden predecir los valores | Casi todos los lenguajes | - | func(x+1, 2) |
 | **De tipo**    | El tipo se define explicitamente: C, C++, Java | El tipo se puede inferir: Python, Javascript | void func(int entero, string palabra) <br> {...} // C, C++  | def func(entero, palabra): <br> ... |
-| **De alcance** | C, C++, Java, Python, JavaScript, Rust, Pascal, Haskell, etc. tienen alcance dentro del cuerpo de la funcion | En algunos lenguajes se pueden usar closures o en lenguajes con expresiones como eval y global (Python) | <br> int x = 10;<br>void func() {<br> int y = 20; // y solo accesible en la funcion <br> if (true) {<br> int z = 30; // z solamente en este bloque<br>}<br>// z queda fuera del alcence<br>}<br> | - |
+| **De alcance** | C, C++, Java, Python, JavaScript, Rust, Pascal, Haskell, etc. tienen alcance dentro del cuerpo de la funcion | En algunos lenguajes se pueden usar closures o en lenguajes con expresiones como eval y global (Python) | ... | - |
 | **De almacenamiento** | En stack de forma fija | En heap, pero también puede capturarse con closure | - | - |
 | **De nombre**         | El nombre del parámetro es fijo en la definición (C, C++, Java, Pascal, Javascript) | Se pueden usar tecnicas para crear nombres dinámicos (**kwargs, reflexión, eval) |  void saludar(char* nombre) {print ("Hola, %s\n", nombre);} <br> int main() { saludar("Pablo"); return 0; } | def funcion(**kwargs): <br> for nombre, valor in kwargs.items(): <br> print(f"{nombre}: {valor}") |
 |**De tiempo de vida**| Los parámetros "viven" durante el tiempo de ejecucion de la funcion | Puede tenerse un tiempo de vida extendido en caso de usar closures | void func(x) {return x + 1;} // x no existe luego de usar la funcion | - |
+
+
+### TP Final
+[Trabajo practico final](parcial.md)
 

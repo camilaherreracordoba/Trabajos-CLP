@@ -1,0 +1,47 @@
+start: programa
+
+programa: "INICIO:" bloque "FIN"
+
+bloque: sentencia*
+
+sentencia: (declaracion | condicional | bucle | asignacion | salida) ";"
+
+salida: "SALIDA:" expresion
+declaracion: "VAR" IDENT declaracion_entero 
+           | "VAR" IDENT declaracion_booleano 
+
+declaracion_entero: "ENTERO" "=" expresion_numerica
+declaracion_booleano: "BOOLEANO" "=" expresion_booleana
+
+asignacion: IDENT "=" expresion 
+condicional: "SI:" expresion_booleana "ENTONCES:" bloque ("SINO:" bloque)?
+bucle: "MIENTRAS:" expresion_booleana "HACER:" bloque 
+
+expresion: expresion_numerica
+         | expresion_booleana
+
+expresion_booleana: BOOLEANO
+                  | IDENT
+                  | LOGICO expresion_booleana expresion_booleana
+                  | NEGACION expresion_booleana
+                  | expresion_comparacion
+
+expresion_numerica: NUM
+                  | IDENT
+                  | ARITMETICO expresion_numerica expresion_numerica
+
+expresion_comparacion: COMPARACION expresion_numerica expresion_numerica
+
+// Tokens para operadores
+ARITMETICO: "+" | "-" | "*" | "/" | "%"
+COMPARACION: "==" | "/=" | ">" | "<"
+LOGICO: "&" | "|"
+NEGACION: "!"
+
+// Otros tokens
+BOOLEANO: "VERDADERO" | "FALSO"
+IDENT: /[a-z_][a-z0-9_-]*/
+NUM: /[0-9]+/
+
+%import common.WS
+%ignore WS
